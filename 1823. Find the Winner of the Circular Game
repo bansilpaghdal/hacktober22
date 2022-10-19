@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int findTheWinner(int n, int k) {
+        vector<int> rat;
+        int track=1;
+        for(int i=1;i<=n;i++)
+            rat.push_back(i);
+        
+       if(k==1)
+       {
+           return rat[rat.size()-1];
+       }
+        
+        while(rat.size()!=1)
+        {
+            
+            for(int i=0;i<rat.size();i++)
+            {
+             
+                if(track==k)
+                {
+                   rat.erase(remove(rat.begin(),rat.end(),rat[i]));
+                    track=1;
+                    
+                }
+                if(rat.size()==i)
+                {
+                    
+                if(track==k)
+                {
+                   rat.erase(remove(rat.begin(),rat.end(),rat[i]));
+                    track=1;
+                    
+                }
+                    else
+                        break;
+                }
+                
+                track++;
+            }
+        }
+        
+        int x=rat[0];
+        
+        return x;
+    }
+};
