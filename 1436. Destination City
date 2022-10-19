@@ -1,0 +1,22 @@
+ class Solution {
+public:
+    string destCity(vector<vector<string>>& paths) {
+        string rat;
+        stack<string> city;
+        city.push(paths[0][1]);
+        
+           for(int j=0;j<paths.size();j++)
+           {
+               if(city.top()==paths[j][0])
+                  { 
+                   city.pop();
+                   city.push(paths[j][1]);
+                   j=0;
+               }
+           }
+        rat=city.top();
+        return rat;
+        
+    }
+};
+	
